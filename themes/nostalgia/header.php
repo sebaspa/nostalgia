@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?php wp_head(); ?>
   <script>
-    var gourmar = {
+    var nostalgia = {
       ajaxurl: '<?php echo admin_url('admin-ajax.php'); ?>',
       homeurl: '<?php echo esc_url(home_url('/')); ?>',
       nonce: '<?php echo wp_create_nonce('wp_rest'); ?>',
@@ -17,5 +17,21 @@
 
 <body <?php body_class(); ?>>
   <?php wp_body_open(); ?>
+  <div class="container max-w-7xl px-4">
+    <div class="flex justify-between items-center">
+      <div>
+        <?php the_custom_logo(); ?>
+      </div>
+      <div>
+        <?php
+        wp_nav_menu(
+          array(
+            'theme_location' => 'menu-1',
+            'menu_id' => 'primary-menu',
+          )
+        );
+        ?>
+      </div>
 
-  <div>Hola nostalgia</div>
+    </div>
+  </div>
