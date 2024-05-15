@@ -1,7 +1,10 @@
 @tailwind base;
-//@import url("./fonts.scss");
+body {
+  @apply font-noirPro-regular;
+}
+@import url("./fonts.scss");
 @tailwind components;
 
-//@import "./header.scss";
+@import "./menus.scss";
 
 @tailwind utilities;

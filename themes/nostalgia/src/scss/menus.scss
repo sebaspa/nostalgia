@@ -1,0 +1,35 @@
+#primary-menu {
+  @apply flex gap-4 items-center;
+
+  a {
+    @apply text-black-500 font-noirPro-regular;
+  }
+}
+
+.footerSocialMediaMenu {
+  @apply flex items-center gap-5 text-white text-xl;
+  &__item {
+    &__link {
+      @apply block w-5 h-5 flex items-center justify-center;
+      &__icon {
+      }
+    }
+    &__link--circle {
+      @apply bg-white rounded-full text-base;
+    }
+    &__link--black {
+      @apply text-black-500;
+    }
+  }
+}
+
+.footerMenuList {
+  @apply text-white;
+  &__title {
+    @apply text-xl font-bold mb-6;
+  }
+
+  &__menu {
+    @apply flex flex-col gap-6 text-sm;
+  }
+}

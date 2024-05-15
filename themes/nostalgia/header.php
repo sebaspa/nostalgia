@@ -17,12 +17,12 @@
 
 <body <?php body_class(); ?>>
   <?php wp_body_open(); ?>
-  <div class="container max-w-7xl px-4">
+  <div class="container max-w-7xl px-4 py-4 md:py-8">
     <div class="flex justify-between items-center">
       <div>
         <?php the_custom_logo(); ?>
       </div>
-      <div>
+      <div class="hidden md:block">
         <?php
         wp_nav_menu(
           array(

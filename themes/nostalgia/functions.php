@@ -50,7 +50,7 @@ add_action('after_setup_theme', 'nostalgia_setup');
 
 function nostalgia_styles_scripts()
 {
-  wp_enqueue_style('nostalgia-style', get_template_directory_uri() . '/dist/css/app.css', array(), VERSION);
+  wp_enqueue_style('nostalgia-style', get_template_directory_uri() . '/dist/css/app.css', array('font-awesome'), VERSION);
   wp_enqueue_script('nostalgia-script', get_template_directory_uri() . '/dist/js/app.js', array('jquery', 'swiper-js', 'leaflet-js'), VERSION, true);
 }
 
