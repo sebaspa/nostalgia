@@ -23,7 +23,7 @@ module.exports = {
       fontFamily: {
         'noirPro-regular': ['NoirPro Regular', 'sans-serif'],
         'noirPro-semiBold': ['NoirPro SemiBold', 'sans-serif'],
-        'noirPro-medium': ['NoirPro Meidum', 'sans-serif'],
+        'noirPro-medium': ['NoirPro Medium', 'sans-serif'],
       }
     },
   },
