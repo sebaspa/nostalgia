@@ -17,6 +17,21 @@
 
 <body <?php body_class(); ?>>
   <?php wp_body_open(); ?>
+  <div class="contHeaderSearch">
+    <div class="container px-4 mx-auto max-w-7xl">
+      <div class="flex justify-between items-center text-white mb-12">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/logo-mobile.png" alt="nostalgia" width="40"
+          height="auto" />
+        <i class="fa fa-times text-4xl btnCloseHeaderSearch" aria-hidden="true"></i>
+      </div>
+      <form action="#" class="formHeaderSearch">
+        <input type="text" class="formHeaderSearch__input" placeholder="Search" />
+        <button type="submit" class="formHeaderSearch__btn">
+          <i class="fa fa-search text-white formHeaderSearch__icon" aria-hidden="true"></i>
+        </button>
+      </form>
+    </div>
+  </div>
   <div class="bg-black-400 w-full h-screen fixed top-0 left-0 z-50 contMobileMenu">
     <div class="container px-4 mx-auto pt-5">
       <div class="flex justify-between items-center text-white mb-12">
@@ -36,7 +51,6 @@
         ?>
       </div>
     </div>
-  </div>
   </div>
   <div class="container max-w-7xl px-4 py-4 md:py-8">
     <div class="flex justify-between items-center">
@@ -60,7 +74,7 @@
           </div>
           <i class="fa fa-shopping-bag menuHeaderIcons__icon" aria-hidden="true"></i>
         </div>
-        <i class="fa fa-search menuHeaderIcons__icon" aria-hidden="true"></i>
+        <i class="fa fa-search menuHeaderIcons__icon btnOpenHeaderSearch" aria-hidden="true"></i>
         <i class="fa fa-bars menuHeaderIcons__icon hidden md:block" aria-hidden="true"></i>
         <i class="fa fa-bars menuHeaderIcons__icon btnMobileMenu md:hidden" aria-hidden="true"></i>
       </div>

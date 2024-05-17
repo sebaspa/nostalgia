@@ -1,0 +1,16 @@
+.contHeaderSearch {
+  @apply bg-black-400 fixed top-0 w-full py-8 md:py-10 z-50 hidden;
+}
+
+.formHeaderSearch {
+  @apply flex items-center justify-between border-b border-white;
+  &__input {
+    @apply w-full h-12 bg-transparent text-white border-none outline-none text-2xl md:text-3xl;
+  }
+  &__btn {
+    @apply flex items-center justify-center;
+  }
+  &__icon {
+    @apply text-white text-2xl md:text-3xl ml-3;
+  }
+}

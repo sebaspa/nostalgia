@@ -42,6 +42,10 @@
 
 .menuHeaderIcons {
   @apply flex items-center gap-7 text-black-500 text-xl;
+
+  &__icon {
+    @apply cursor-pointer;
+  }
 }
 
 .contMobileMenu {
