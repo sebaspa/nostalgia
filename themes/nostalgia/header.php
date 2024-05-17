@@ -32,7 +32,41 @@
       </form>
     </div>
   </div>
-  <div class="bg-black-400 w-full h-screen fixed top-0 left-0 z-50 contMobileMenu">
+  <div class="contLateralMenu">
+    <div class="contLateralMenu__container">
+      <div class="flex items-center justify-between">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/logo-mobile.png" alt="nostalgia" width="40"
+          height="auto" />
+        <i class="fa fa-times text-4xl btnCloseLateralMenu" aria-hidden="true"></i>
+      </div>
+      <ul class="lateralMenu">
+        <li class="lateralMenu__item">
+          <a href="https://facebook.com" target="_blank" rel="noreferrer noopener" class="lateralMenu__link">
+            <i class="fa fa-facebook lateralMenu__icon" aria-hidden="true"></i>
+            <p class="lateralMenu__text">Facebook</p>
+          </a>
+        </li>
+        <li class="lateralMenu__item">
+          <a href="https://instagram.com" target="_blank" rel="noreferrer noopener" class="lateralMenu__link">
+            <i class="fa fa-instagram lateralMenu__icon" aria-hidden="true"></i>
+            <p class="lateralMenu__text">Instagram</p>
+          </a>
+        </li>
+        <li class="lateralMenu__item">
+          <a href="https://youtube.com" target="_blank" rel="noreferrer noopener" class="lateralMenu__link">
+            <i class="fa fa-youtube-play lateralMenu__icon" aria-hidden="true"></i>
+            <p class="lateralMenu__text">Youtube</p>
+          </a>
+        </li>
+      </ul>
+      <div class="border-t border-black-400 pt-8">
+        <p class="text-3xl font-noirPro-medium text-black-500 mb-2">+ (507) 2690-160</p>
+        <p class="text-base font-noirPro-regular text-black-400">soporte@nostalgia.com.pa</p>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="contMobileMenu">
     <div class="container px-4 mx-auto pt-5">
       <div class="flex justify-between items-center text-white mb-12">
         <img src="<?php echo get_template_directory_uri(); ?>/images/logo-mobile.png" alt="nostalgia" width="40"
@@ -75,7 +109,7 @@
           <i class="fa fa-shopping-bag menuHeaderIcons__icon" aria-hidden="true"></i>
         </div>
         <i class="fa fa-search menuHeaderIcons__icon btnOpenHeaderSearch" aria-hidden="true"></i>
-        <i class="fa fa-bars menuHeaderIcons__icon hidden md:block" aria-hidden="true"></i>
+        <i class="fa fa-bars menuHeaderIcons__icon hidden md:block btnOpenLateralMenu" aria-hidden="true"></i>
         <i class="fa fa-bars menuHeaderIcons__icon btnMobileMenu md:hidden" aria-hidden="true"></i>
       </div>
     </div>

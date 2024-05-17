@@ -49,7 +49,7 @@
 }
 
 .contMobileMenu {
-  @apply hidden;
+  @apply bg-black-400 w-full h-screen fixed top-0 left-0 z-50 hidden;
   .mobileMenu {
     .menu-item {
       @apply mb-5 text-center;
@@ -57,5 +57,23 @@
         @apply text-white text-2xl font-noirPro-regular;
       }
     }
+  }
+}
+
+.contLateralMenu {
+  @apply hidden fixed top-0 right-0 z-50;
+
+  &__container {
+    @apply bg-light-gray-500 fixed top-0 right-0 h-screen z-50 px-8 py-16 w-auto md:w-96 flex flex-col justify-between;
+  }
+}
+
+.lateralMenu {
+  @apply text-black-500;
+  &__item {
+  }
+
+  &__link {
+    @apply text-black-500 text-2xl font-noirPro-regular flex items-center gap-4 mb-5;
   }
 }

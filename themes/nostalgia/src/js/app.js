@@ -1,4 +1,5 @@
 import headerSearch from "./headerSearch";
+import lateralMenu from "./lateralMenu";
 import mainMenu from "./mainMenu";
 
 jQuery(function () {
@@ -6,4 +7,6 @@ jQuery(function () {
   new mainMenu();
   //Header search
   new headerSearch();
+  // Lateral menu
+  new lateralMenu();
 });

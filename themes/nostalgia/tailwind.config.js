@@ -30,6 +30,17 @@ module.exports = {
           800: "#664d00",
           900: "#332600"
         },
+        "light-gray": {
+          100: "#fdfdfd",
+          200: "#fbfbfb",
+          300: "#f9f9f9",
+          400: "#f7f7f7",
+          500: "#f5f5f5",
+          600: "#c4c4c4",
+          700: "#939393",
+          800: "#626262",
+          900: "#313131"
+        },
       },
       fontFamily: {
         'noirPro-regular': ['NoirPro Regular', 'sans-serif'],
