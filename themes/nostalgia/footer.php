@@ -1,6 +1,6 @@
-<footer class="bg-black-400 pb-9 pt-24">
+<footer class="bg-black-400 pb-9 pt-12 md:pt-24">
   <div class="container max-w-7xl px-4">
-    <div class="grid grid-cols-12 gap-28 mb-14">
+    <div class="grid grid-cols-12 gap-8 lg:gap-12 xl:gap-28 mb-14">
       <div class="col-span-12 md:col-span-4">
         <img src="<?php echo get_template_directory_uri(); ?>/images/logo-footer.png" alt="nostalgia" width="300"
           height="81" />
@@ -54,7 +54,7 @@
       <div class="col-span-12 md:col-span-4">
         <ul class="footerMenuList">
           <p class="footerMenuList__title">Información de contacto</p>
-          <ul>
+          <ul class="mb-8 md:mb-16">
             <li class="mb-3">
               <p>
                 <i class="fa fa-map-marker mr-2"></i> Paitilla, al lado del Consulado de Colombia, Panamá
@@ -62,10 +62,16 @@
             </li>
             <li class="mb-3">
               <p>
-                <i class="fa fa-map-marker mr-2"></i> Paitilla, al lado del Consulado de Colombia, Panamá
+                <i class="fa fa-phone mr-2"></i> + (507) 2690-160
+              </p>
+            </li>
+            <li class="mb-3">
+              <p>
+                <i class="fa fa-envelope mr-2"></i> soporte@nostalgia.com.pa
               </p>
             </li>
           </ul>
+          <a href="#" class="btn btn-primary font-noirPro-medium">CONTÁCTANOS</a>
       </div>
     </div>
   </div>

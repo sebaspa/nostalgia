@@ -1,8 +1,14 @@
-#primary-menu {
+#primaryMenu {
   @apply flex gap-4 items-center;
 
-  a {
-    @apply text-black-500 font-noirPro-regular;
+  .menu-item {
+    a {
+      @apply text-black-500 font-noirPro-regular;
+    }
+  }
+
+  .current-menu-item {
+    @apply border-b border-black-500;
   }
 }
 
@@ -31,5 +37,21 @@
 
   &__menu {
     @apply flex flex-col gap-6 text-sm;
+  }
+}
+
+.menuHeaderIcons {
+  @apply flex items-center gap-7 text-black-500 text-xl;
+}
+
+.contMobileMenu {
+  @apply hidden;
+  .mobileMenu {
+    .menu-item {
+      @apply mb-5 text-center;
+      a {
+        @apply text-white text-2xl font-noirPro-regular;
+      }
+    }
   }
 }

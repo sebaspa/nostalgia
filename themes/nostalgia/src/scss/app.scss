@@ -6,5 +6,8 @@ body {
 @tailwind components;
 
 @import "./menus.scss";
+@import "./buttons.scss";
+
+@import "./cart.scss";
 
 @tailwind utilities;

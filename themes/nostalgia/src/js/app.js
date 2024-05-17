@@ -1,4 +1,6 @@
+import mainMenu from "./mainMenu";
 
 jQuery(function () {
-  console.log('Hello, Nostalgia!');
+  //Main menu
+  new mainMenu();
 });
