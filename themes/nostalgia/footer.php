@@ -71,7 +71,7 @@
               </p>
             </li>
           </ul>
-          <a href="#" class="btn btn-primary font-noirPro-medium">CONTÁCTANOS</a>
+          <a href="<?php echo site_url('contact'); ?>" class="btn btn-primary font-noirPro-medium">CONTÁCTANOS</a>
       </div>
     </div>
   </div>
