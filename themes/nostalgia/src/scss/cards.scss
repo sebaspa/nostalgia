@@ -1,0 +1,20 @@
+.cardNew {
+  &__image {
+    @apply mb-4;
+    img {
+      @apply w-full object-cover;
+    }
+  }
+
+  &__category {
+    @apply text-light-gray-700 uppercase text-base font-noirPro-regular mb-3;
+  }
+
+  &__shortDescription {
+    @apply text-black-500 font-noirPro-medium mb-3 text-lg;
+  }
+
+  &__date {
+    @apply text-light-gray-700 text-sm font-noirPro-regular;
+  }
+}
