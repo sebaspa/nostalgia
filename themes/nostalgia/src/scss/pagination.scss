@@ -1,0 +1,11 @@
+.pagination {
+  @apply py-8 md:py-16 flex items-center justify-center gap-1;
+
+  .page-numbers {
+    @apply w-6 h-6 md:w-10 md:h-10 flex items-center justify-center border border-light-gray-700 bg-light-gray-400 text-black-500 text-base md:text-xl;
+  }
+
+  .current {
+    @apply bg-black-500 text-white;
+  }
+}

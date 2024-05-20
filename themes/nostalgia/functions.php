@@ -50,8 +50,11 @@ add_action('after_setup_theme', 'nostalgia_setup');
 
 function nostalgia_styles_scripts()
 {
+  wp_enqueue_style('leaflet', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css', array(), '1.9.4');
+  wp_enqueue_script('leaflet', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', array(), '1.9.4', true);
+
   wp_enqueue_style('nostalgia-style', get_template_directory_uri() . '/dist/css/app.css', array('font-awesome'), VERSION);
-  wp_enqueue_script('nostalgia-script', get_template_directory_uri() . '/dist/js/app.js', array('jquery'), VERSION, true);
+  wp_enqueue_script('nostalgia-script', get_template_directory_uri() . '/dist/js/app.js', array('jquery', 'leaflet'), VERSION, true);
 }
 
 add_action('wp_enqueue_scripts', 'nostalgia_styles_scripts');

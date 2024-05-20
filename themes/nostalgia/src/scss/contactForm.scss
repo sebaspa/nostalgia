@@ -1,0 +1,17 @@
+.contactForm {
+  .gform_fields {
+    @apply grid grid-cols-12 gap-4;
+  }
+
+  .gfield {
+    @apply col-span-12 lg:col-span-6;
+  }
+  #field_1_6,
+  #field_1_7 {
+    @apply col-span-12;
+  }
+
+  #gform_submit_button_1 {
+    @apply bg-black-400 text-white text-lg font-noirPro-medium uppercase py-4 px-8;
+  }
+}
