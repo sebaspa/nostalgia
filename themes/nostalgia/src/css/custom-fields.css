@@ -1,0 +1,21 @@
+.accordion-item {
+    cursor: pointer;
+}
+
+.accordion-title {
+    font-weight: bold;
+}
+
+.accordion-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.accordion-content-mount {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    align-items: center;
+    padding: 10px;
+}

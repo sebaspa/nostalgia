@@ -59,3 +59,20 @@ add_action('wp_enqueue_scripts', 'nostalgia_styles_scripts');
 
 add_theme_support('woocommerce');
 
+// Shop Item modifications start //
+
+// Enqueue custom styles and scripts for custom fields
+add_action('wp_enqueue_scripts', 'enqueue_custom_fields_assets');
+function enqueue_custom_fields_assets() {
+    if (is_product()) { // Only load on product pages
+        wp_enqueue_style('custom-fields-css', get_stylesheet_directory_uri() . '/src/css/custom-fields.css');
+        wp_enqueue_script('custom-fields-js', get_stylesheet_directory_uri() . '/src/js/custom-fields.js', array('jquery'), null, true);
+    }
+}
+
+// Add custom fields to the product page
+add_action('woocommerce_before_add_to_cart_button', 'add_custom_fields');
+function add_custom_fields() {
+    include __DIR__ . '\src\custom-fields.html';
+}
+// Shop Item modifications end //
