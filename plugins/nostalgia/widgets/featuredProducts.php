@@ -67,16 +67,27 @@ class Featured_Products_Widget extends WP_Widget {
             while ($loop->have_posts()) : $loop->the_post();
                 global $product;
                 echo '<li>';
-                echo '<a href="' . get_permalink() . '">';
+                echo '<a href="' . esc_url(get_permalink()) . '">';
                 echo woocommerce_get_product_thumbnail();
-                echo '<h2>' . get_the_title() . '</h2>';
+                echo '<div class="object-none">OVERLAY</div>';
+
+                // Print the first category without a link
+                $categories = wp_get_post_terms($product->get_id(), 'product_cat');
+                if (!empty($categories) && !is_wp_error($categories)) {
+                    // Get the first category
+                    $first_category = $categories[0];
+                    // Print the first category name
+                    echo '<span class="text-gray-400 text-xs">' . esc_html($first_category->name) . '</span>';
+                }
+
+                echo '<h2 class="font-semibold">' . esc_html(get_the_title()) . '</h2>';
                 echo '</a>';
-                echo '<span class="price">' . $product->get_price_html() . '</span>';
+                echo '<span class="price">Desde: ' . $product->get_price_html() . '</span>';
                 echo '</li>';
             endwhile;
             echo '</ul>';
         } else {
-            echo __('No products found');
+            echo esc_html__('No products found', 'text_domain');
         }
 
         wp_reset_postdata();
