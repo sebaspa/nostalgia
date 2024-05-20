@@ -24,6 +24,7 @@
           height="auto" />
         <i class="fa fa-times text-4xl btnCloseHeaderSearch" aria-hidden="true"></i>
       </div>
+      <?php //TODO: Corregir formulario de busqueda. get_search_form(); ?>
       <form action="#" class="formHeaderSearch">
         <input type="text" class="formHeaderSearch__input" placeholder="Search" />
         <button type="submit" class="formHeaderSearch__btn">
@@ -35,7 +36,7 @@
   <div class="contLateralMenu">
     <div class="contLateralMenu__container">
       <div class="flex items-center justify-between">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/logo-mobile.png" alt="nostalgia" width="40"
+        <img src="<?php echo get_template_directory_uri(); ?>/images/logo-barra.png" alt="nostalgia" width="38"
           height="auto" />
         <i class="fa fa-times text-4xl btnCloseLateralMenu" aria-hidden="true"></i>
       </div>

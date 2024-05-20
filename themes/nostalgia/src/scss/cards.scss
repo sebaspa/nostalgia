@@ -1,8 +1,8 @@
 .cardNew {
   &__image {
-    @apply mb-4;
+    @apply mb-4 w-full bg-light-gray-500 h-64 md:h-72;
     img {
-      @apply w-full object-cover;
+      @apply w-full object-cover h-64 md:h-72;
     }
   }
 

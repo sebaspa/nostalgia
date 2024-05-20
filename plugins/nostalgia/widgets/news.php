@@ -43,7 +43,8 @@ class newsWidget extends WP_Widget
             <div class="cardNew">
               <a href="<?php echo get_permalink($new->ID); ?>">
                 <div class="cardNew__image">
-                  <img src="<?php echo $image_src[0]; ?>" alt="<?php echo $new->post_title; ?>">
+                  <img src="<?php echo $image_src[0]; ?>" alt="<?php echo $new->post_title; ?>" class="w-full object-cover"
+                    loading="lazy" />
                 </div>
               </a>
               <p class="cardNew__category"><?php echo $category[0]->name; ?></p>

@@ -7,6 +7,7 @@ body {
 
 @import "./menus.scss";
 @import "./buttons.scss";
+@import "./breadcrumbs.scss";
 
 @import "./cart.scss";
 
@@ -15,5 +16,7 @@ body {
 @import "./cards.scss";
 
 @import "./pagination.scss";
+
+@import "./contactForm.scss";
 
 @tailwind utilities;
