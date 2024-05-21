@@ -63,11 +63,10 @@ class Featured_Products_Widget extends WP_Widget {
         $loop = new WP_Query($args);
 
         if ($loop->have_posts()) {
-            echo '<div class="featured-products flex flex-wrap justify-between">';
+            echo '<div class="featured-products flex flex-wrap justify-around">';
             while ($loop->have_posts()) : $loop->the_post();
                 global $product;
                 echo '<div class="relative mt-10">';
-                //echo '<a href="' . esc_url(get_permalink()) . '">';
                     echo woocommerce_get_product_thumbnail();
                 // Print the first category without a link
                     echo '<div class="footer bg-white p-4">';
@@ -84,10 +83,14 @@ class Featured_Products_Widget extends WP_Widget {
                     echo '</div>';
                     // Overlay on hover
                     echo '<div class="overlay absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-50 transition-opacity duration-300 ease-in-out flex opacity-0 hover:opacity-100 flex items-center justify-center">';
-                        echo '<div class="icons space-x-4 text-white text-2xl">';
-                            echo '<i class="fas fa-heart"></i>';
-                            echo '<i class="fas fa-share"></i>';
-                            echo '<i class="fas fa-shopping-cart"></i>';
+                        echo '<div class="icons space-x-4 text-white text-2xl flex">';
+                            echo '<img src="' . get_template_directory_uri() . '/images/like_product_icon.png" alt="like icon">';
+                            echo '<a href="' . esc_url(add_query_arg('add-to-cart', $product->get_id())) . '">';
+                            echo '<img src="' . get_template_directory_uri() . '/images/add_product_icon.png" alt="add to cart icon">';
+                            echo '</a>';
+                            echo '<a href="' . esc_url(get_permalink()) . '">';
+                            echo '<img src="' . get_template_directory_uri() . '/images/open_product_icon.png" alt="open product icon">';
+                            echo '</a>';
                         echo '</div>';
                     echo '</div>';
                 echo '</div>';
