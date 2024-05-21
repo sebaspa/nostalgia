@@ -44,17 +44,14 @@ add_action('wp', 'custom_add_to_wishlist');
 
 // Define the Featured Products Widget
 class Featured_Products_Widget extends WP_Widget {
-
-    // Constructor
     public function __construct() {
         parent::__construct(
-            'featured_products_widget', // Base ID
-            __('Featured Products', 'text_domain'), // Name
-            array('description' => __('Displays featured WooCommerce products', 'text_domain'),) // Args
+            'featured_products_widget',
+            __('Featured Products', 'text_domain'),
+            array('description' => __('Displays featured WooCommerce products', 'text_domain'),)
         );
     }
 
-    // The widget form (for the backend)
     public function form($instance) {
         $number = !empty($instance['number']) ? $instance['number'] : 5;
         ?>
@@ -67,14 +64,14 @@ class Featured_Products_Widget extends WP_Widget {
         <?php 
     }
 
-    // Updating widget replacing old instances with new
+    
     public function update($new_instance, $old_instance) {
         $instance = array();
         $instance['number'] = (!empty($new_instance['number'])) ? strip_tags($new_instance['number']) : '';
         return $instance;
     }
 
-    // The widget front-end
+    
     public function widget($args, $instance) {
         $number = !empty($instance['number']) ? $instance['number'] : 5;
 
@@ -87,7 +84,7 @@ class Featured_Products_Widget extends WP_Widget {
         echo $args['after_widget'];
     }
 
-    // Function to retrieve and display the featured products
+    
     private function get_featured_products($number) {
         $args = array(
             'post_type' => 'product',
@@ -112,13 +109,11 @@ class Featured_Products_Widget extends WP_Widget {
                 global $product;
                 echo '<div class="relative mt-10">';
                     echo woocommerce_get_product_thumbnail();
-                // Print the first category without a link
+                
                     echo '<div class="footer bg-white p-4">';
                         $categories = wp_get_post_terms($product->get_id(), 'product_cat');
                         if (!empty($categories) && !is_wp_error($categories)) {
-                            // Get the first category
                             $first_category = $categories[0];
-                            // Print the first category name
                             echo '<span class="text-gray-400 text-xs">' . esc_html($first_category->name) . '</span>';
                         }
 
@@ -154,6 +149,5 @@ class Featured_Products_Widget extends WP_Widget {
     }
 }
 
-// Register the widget
 register_widget('Featured_Products_Widget');
 ?>
