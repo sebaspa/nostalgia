@@ -1,4 +1,48 @@
 <?php
+// Start the session for guest users
+function custom_start_session() {
+    if (!session_id()) {
+        session_start();
+    }
+}
+add_action('init', 'custom_start_session', 1);
+
+// Handle add to wishlist
+function custom_add_to_wishlist() {
+    if (isset($_GET['add_to_wishlist'])) {
+        $product_id = intval($_GET['add_to_wishlist']);
+        
+        if ($product_id) {
+            if (is_user_logged_in()) {
+                $user_id = get_current_user_id();
+                $wishlist = get_user_meta($user_id, '_wishlist', true);
+                
+                if (!is_array($wishlist)) {
+                    $wishlist = array();
+                }
+                
+                if (!in_array($product_id, $wishlist)) {
+                    $wishlist[] = $product_id;
+                    update_user_meta($user_id, '_wishlist', $wishlist);
+                }
+            } else {
+                if (!isset($_SESSION['wishlist']) || !is_array($_SESSION['wishlist'])) {
+                    $_SESSION['wishlist'] = array();
+                }
+                
+                if (!in_array($product_id, $_SESSION['wishlist'])) {
+                    $_SESSION['wishlist'][] = $product_id;
+                }
+            }
+        }
+
+        wp_redirect(get_permalink($product_id));
+        exit;
+    }
+}
+add_action('wp', 'custom_add_to_wishlist');
+
+// Define the Featured Products Widget
 class Featured_Products_Widget extends WP_Widget {
 
     // Constructor
@@ -84,10 +128,16 @@ class Featured_Products_Widget extends WP_Widget {
                     // Overlay on hover
                     echo '<div class="overlay absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-50 transition-opacity duration-300 ease-in-out flex opacity-0 hover:opacity-100 flex items-center justify-center">';
                         echo '<div class="icons space-x-4 text-white text-2xl flex">';
+                            // Like icon with add to wishlist functionality
+                            $wishlist_url = add_query_arg('add_to_wishlist', $product->get_id(), home_url());
+                            echo '<a href="' . esc_url($wishlist_url) . '">';
                             echo '<img src="' . get_template_directory_uri() . '/images/like_product_icon.png" alt="like icon">';
+                            echo '</a>';
+                            // Add to cart icon
                             echo '<a href="' . esc_url(add_query_arg('add-to-cart', $product->get_id())) . '">';
                             echo '<img src="' . get_template_directory_uri() . '/images/add_product_icon.png" alt="add to cart icon">';
                             echo '</a>';
+                            // Open product icon
                             echo '<a href="' . esc_url(get_permalink()) . '">';
                             echo '<img src="' . get_template_directory_uri() . '/images/open_product_icon.png" alt="open product icon">';
                             echo '</a>';
