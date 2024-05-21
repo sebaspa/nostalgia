@@ -63,7 +63,7 @@ class Featured_Products_Widget extends WP_Widget {
         $loop = new WP_Query($args);
 
         if ($loop->have_posts()) {
-            echo '<div class="featured-products">';
+            echo '<div class="featured-products flex flex-wrap justify-between">';
             while ($loop->have_posts()) : $loop->the_post();
                 global $product;
                 echo '<div class="relative mt-10">';
@@ -83,7 +83,13 @@ class Featured_Products_Widget extends WP_Widget {
                         echo '<span class="price">Desde: ' . $product->get_price_html() . '</span>';
                     echo '</div>';
                     // Overlay on hover
-                    echo '<div class="overlay absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-50 transition-opacity duration-300 ease-in-out flex items-center justify-center opacity-0 hover:opacity-100 z-10">Overlay</div>';
+                    echo '<div class="overlay absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-50 transition-opacity duration-300 ease-in-out flex opacity-0 hover:opacity-100 flex items-center justify-center">';
+                        echo '<div class="icons space-x-4 text-white text-2xl">';
+                            echo '<i class="fas fa-heart"></i>';
+                            echo '<i class="fas fa-share"></i>';
+                            echo '<i class="fas fa-shopping-cart"></i>';
+                        echo '</div>';
+                    echo '</div>';
                 echo '</div>';
             endwhile;
             echo '</div>';
