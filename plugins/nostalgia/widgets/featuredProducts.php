@@ -63,29 +63,30 @@ class Featured_Products_Widget extends WP_Widget {
         $loop = new WP_Query($args);
 
         if ($loop->have_posts()) {
-            echo '<ul class="featured-products">';
+            echo '<div class="featured-products">';
             while ($loop->have_posts()) : $loop->the_post();
                 global $product;
-                echo '<li>';
-                echo '<a href="' . esc_url(get_permalink()) . '">';
-                echo woocommerce_get_product_thumbnail();
-                echo '<div class="object-none">OVERLAY</div>';
-
+                echo '<div class="relative mt-10">';
+                //echo '<a href="' . esc_url(get_permalink()) . '">';
+                    echo woocommerce_get_product_thumbnail();
                 // Print the first category without a link
-                $categories = wp_get_post_terms($product->get_id(), 'product_cat');
-                if (!empty($categories) && !is_wp_error($categories)) {
-                    // Get the first category
-                    $first_category = $categories[0];
-                    // Print the first category name
-                    echo '<span class="text-gray-400 text-xs">' . esc_html($first_category->name) . '</span>';
-                }
+                    echo '<div class="footer bg-white p-4">';
+                        $categories = wp_get_post_terms($product->get_id(), 'product_cat');
+                        if (!empty($categories) && !is_wp_error($categories)) {
+                            // Get the first category
+                            $first_category = $categories[0];
+                            // Print the first category name
+                            echo '<span class="text-gray-400 text-xs">' . esc_html($first_category->name) . '</span>';
+                        }
 
-                echo '<h2 class="font-semibold">' . esc_html(get_the_title()) . '</h2>';
-                echo '</a>';
-                echo '<span class="price">Desde: ' . $product->get_price_html() . '</span>';
-                echo '</li>';
+                        echo '<h2 class="font-semibold">' . esc_html(get_the_title()) . '</h2>';
+                        echo '<span class="price">Desde: ' . $product->get_price_html() . '</span>';
+                    echo '</div>';
+                    // Overlay on hover
+                    echo '<div class="overlay absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-50 transition-opacity duration-300 ease-in-out flex items-center justify-center opacity-0 hover:opacity-100 z-10">Overlay</div>';
+                echo '</div>';
             endwhile;
-            echo '</ul>';
+            echo '</div>';
         } else {
             echo esc_html__('No products found', 'text_domain');
         }
