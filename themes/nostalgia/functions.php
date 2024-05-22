@@ -63,7 +63,7 @@ add_action('wp_enqueue_scripts', 'nostalgia_styles_scripts');
 add_theme_support('woocommerce');
 
 // Shop Item modifications start //
-
+// Add custom fields to the product page
 // Enqueue custom styles and scripts for custom fields
 add_action('wp_enqueue_scripts', 'enqueue_custom_fields_assets');
 function enqueue_custom_fields_assets() {
@@ -76,6 +76,6 @@ function enqueue_custom_fields_assets() {
 // Add custom fields to the product page
 add_action('woocommerce_before_add_to_cart_button', 'add_custom_fields');
 function add_custom_fields() {
-    include __DIR__ . '\src\custom-fields.html';
+    include __DIR__ . '/layouts/customFields/custom-fields.php';
 }
 // Shop Item modifications end //

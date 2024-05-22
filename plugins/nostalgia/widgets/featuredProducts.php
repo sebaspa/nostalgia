@@ -104,7 +104,7 @@ class Featured_Products_Widget extends WP_Widget {
         $loop = new WP_Query($args);
 
         if ($loop->have_posts()) {
-            echo '<div class="featured-products flex flex-wrap justify-around">';
+            echo '<div class="featured-products flex flex-wrap justify-around" id="featured-products">';
             while ($loop->have_posts()) : $loop->the_post();
                 global $product;
                 echo '<div class="relative mt-10">';
