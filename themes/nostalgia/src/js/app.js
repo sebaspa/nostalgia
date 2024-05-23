@@ -2,6 +2,7 @@ import contactMap from "./contactMap";
 import headerSearch from "./headerSearch";
 import lateralMenu from "./lateralMenu";
 import mainMenu from "./mainMenu";
+import productsCustomFields from "./productsCustomFields";
 
 jQuery(function () {
   //Main menu
@@ -11,7 +12,11 @@ jQuery(function () {
   // Lateral menu
   new lateralMenu();
   //ContactMap
-  if (jQuery('#contactMap').length > 0) {
+  if (jQuery("#contactMap").length > 0) {
     new contactMap();
+  }
+
+  if (jQuery("#product-custom-fields").length > 0) {
+    new productsCustomFields();
   }
 });

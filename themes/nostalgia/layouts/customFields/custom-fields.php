@@ -1,4 +1,4 @@
-<div class="accordion">
+<div class="accordion" id="product-custom-fields">
     <div class="accordion-item">
         <div id="accordion-button-1" aria-expanded="false"><span class="accordion-title">1. Mount Type</span>
         </div>
