@@ -1,0 +1,7 @@
+.btn {
+  @apply py-3 px-8 border text-base;
+
+  &-primary {
+    @apply border-white text-white;
+  }
+}

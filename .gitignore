@@ -111,11 +111,11 @@ $RECYCLE.BIN/
 # Example plugin
 /plugins/hello.php
 /plugins/elementor
-/plugins/image-optimization
 /plugins/wp-migrate-db
 /plugins/woocommerce
-/plugins/jetpack/
 /plugins/gravityforms/
+# url: https://es.wordpress.org/plugins/custom-fonts/
+/plugins/custom-fonts/
 
 # Uploads
 /uploads/

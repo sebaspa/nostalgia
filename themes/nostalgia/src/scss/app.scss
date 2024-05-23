@@ -1,0 +1,22 @@
+@tailwind base;
+body {
+  @apply font-noirPro-regular;
+}
+@import url("./fonts.scss");
+@tailwind components;
+
+@import "./menus.scss";
+@import "./buttons.scss";
+@import "./breadcrumbs.scss";
+
+@import "./cart.scss";
+
+@import "./forms.scss";
+
+@import "./cards.scss";
+
+@import "./pagination.scss";
+
+@import "./contactForm.scss";
+
+@tailwind utilities;
