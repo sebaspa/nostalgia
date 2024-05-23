@@ -24,9 +24,9 @@
           height="auto" />
         <i class="fa fa-times text-4xl btnCloseHeaderSearch" aria-hidden="true"></i>
       </div>
-      <?php //TODO: Corregir formulario de busqueda. get_search_form(); ?>
-      <form action="#" class="formHeaderSearch">
-        <input type="text" class="formHeaderSearch__input" placeholder="Search" />
+      <form action="<?php echo esc_url(home_url('/')); ?>" role="search" method="get" class="formHeaderSearch">
+        <input type="search" class="formHeaderSearch__input" name="s"
+          placeholder="<?php _e('Search', 'nostalgia'); ?>" />
         <button type="submit" class="formHeaderSearch__btn">
           <i class="fa fa-search text-white formHeaderSearch__icon" aria-hidden="true"></i>
         </button>
