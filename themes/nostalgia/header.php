@@ -24,9 +24,9 @@
           height="auto" />
         <i class="fa fa-times text-4xl btnCloseHeaderSearch" aria-hidden="true"></i>
       </div>
-      <?php //TODO: Corregir formulario de busqueda. get_search_form(); ?>
-      <form action="#" class="formHeaderSearch">
-        <input type="text" class="formHeaderSearch__input" placeholder="Search" />
+      <form action="<?php echo esc_url(home_url('/')); ?>" role="search" method="get" class="formHeaderSearch">
+        <input type="search" class="formHeaderSearch__input" name="s"
+          placeholder="<?php _e('Search', 'nostalgia'); ?>" />
         <button type="submit" class="formHeaderSearch__btn">
           <i class="fa fa-search text-white formHeaderSearch__icon" aria-hidden="true"></i>
         </button>
@@ -103,12 +103,17 @@
         ?>
       </div>
       <div class="menuHeaderIcons">
+        <a href="<?php echo wc_get_cart_url(); ?>" target="_self" rel="noreferrer noopener">
         <div class="headerShoppingCart">
           <div class="headerShoppingCart__circle">
-            <p class="headerShoppingCart__quantity">2</p>
+            <?php
+            $count = WC()->cart->get_cart_contents_count();
+            ?>
+            <p class="headerShoppingCart__quantity"><?php echo $count; ?></p>
           </div>
           <i class="fa fa-shopping-bag menuHeaderIcons__icon" aria-hidden="true"></i>
         </div>
+        </a>
         <i class="fa fa-search menuHeaderIcons__icon btnOpenHeaderSearch" aria-hidden="true"></i>
         <i class="fa fa-bars menuHeaderIcons__icon hidden md:block btnOpenLateralMenu" aria-hidden="true"></i>
         <i class="fa fa-bars menuHeaderIcons__icon btnMobileMenu md:hidden" aria-hidden="true"></i>
