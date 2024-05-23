@@ -103,6 +103,7 @@
         ?>
       </div>
       <div class="menuHeaderIcons">
+        <a href="<?php echo wc_get_cart_url(); ?>" target="_self" rel="noreferrer noopener">
         <div class="headerShoppingCart">
           <div class="headerShoppingCart__circle">
             <?php
@@ -112,6 +113,7 @@
           </div>
           <i class="fa fa-shopping-bag menuHeaderIcons__icon" aria-hidden="true"></i>
         </div>
+        </a>
         <i class="fa fa-search menuHeaderIcons__icon btnOpenHeaderSearch" aria-hidden="true"></i>
         <i class="fa fa-bars menuHeaderIcons__icon hidden md:block btnOpenLateralMenu" aria-hidden="true"></i>
         <i class="fa fa-bars menuHeaderIcons__icon btnMobileMenu md:hidden" aria-hidden="true"></i>
