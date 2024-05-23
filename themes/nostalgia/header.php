@@ -105,7 +105,10 @@
       <div class="menuHeaderIcons">
         <div class="headerShoppingCart">
           <div class="headerShoppingCart__circle">
-            <p class="headerShoppingCart__quantity">2</p>
+            <?php
+            $count = WC()->cart->get_cart_contents_count();
+            ?>
+            <p class="headerShoppingCart__quantity"><?php echo $count; ?></p>
           </div>
           <i class="fa fa-shopping-bag menuHeaderIcons__icon" aria-hidden="true"></i>
         </div>
