@@ -117,6 +117,8 @@ $RECYCLE.BIN/
 # url: https://es.wordpress.org/plugins/custom-fonts/
 /plugins/custom-fonts/
 
+/mu-plugins/wp-migrate-db-pro-compatibility.php
+
 # Uploads
 /uploads/
 

@@ -113,44 +113,50 @@ class Featured_Products_Widget extends WP_Widget
 
     $loop = new WP_Query($args);
 
-        if ($loop->have_posts()) {
-            echo '<div class="featured-products flex flex-wrap justify-around" id="featured-products">';
-            while ($loop->have_posts()) : $loop->the_post();
-                global $product;
-                echo '<div class="relative mt-10">';
-                    echo woocommerce_get_product_thumbnail();
-                
-                    echo '<div class="footer bg-white p-4">';
-                        $categories = wp_get_post_terms($product->get_id(), 'product_cat');
-                        if (!empty($categories) && !is_wp_error($categories)) {
-                            $first_category = $categories[0];
-                            echo '<span class="text-gray-400 text-xs">' . esc_html($first_category->name) . '</span>';
-                        }
+    if ($loop->have_posts()) {
+      ?>
+      <div class="grid grid-cols-12 gap-4">
+        <?php while ($loop->have_posts()):
+          $loop->the_post();
+          global $product;
+          ?>
+          <div class="cardFeaturedProduct">
+            <div class="relative">
+              <div class="cardFeaturedProduct__image">
+                <?php echo woocommerce_get_product_thumbnail(); ?>
+              </div>
+              <div class="cardFeaturedProduct__overlay">
+                <div class="space-x-4 flex">
+                  <?php $wishlist_url = add_query_arg('add_to_wishlist', $product->get_id(), home_url()); ?>
+                  <a href="<?php echo esc_url($wishlist_url); ?>">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/like_product_icon.png" alt="like icon">
+                  </a>
+                  <a href="<?php echo esc_url(add_query_arg('add-to-cart', $product->get_id())) ?>">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/add_product_icon.png" alt="add to cart icon">
+                  </a>
+                  <a href="<?php echo esc_url(get_permalink()); ?>">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/open_product_icon.png" alt="open product icon">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="footer bg-white p-4">
+              <?php
+              $categories = wp_get_post_terms($product->get_id(), 'product_cat');
+              if (!empty($categories) && !is_wp_error($categories)) {
+                $first_category = $categories[0];
+                echo '<p class="text-gray-400 text-sm font-noirPro-regular">' . esc_html($first_category->name) . '</p>';
+              }
+              ?>
 
-        echo '<h2 class="font-semibold">' . esc_html(get_the_title()) . '</h2>';
-        echo '<span class="price">Desde: ' . $product->get_price_html() . '</span>';
-        echo '</div>';
-        // Overlay on hover
-        echo '<div class="overlay absolute inset-0 bg-black hover:bg-opacity-50 transition-opacity duration-300 ease-in-out flex opacity-0 hover:opacity-100 items-center justify-center">';
-        echo '<div class="icons space-x-4 text-white text-2xl flex">';
-        // Like icon with add to wishlist functionality
-        $wishlist_url = add_query_arg('add_to_wishlist', $product->get_id(), home_url());
-        echo '<a href="' . esc_url($wishlist_url) . '">';
-        echo '<img src="' . get_template_directory_uri() . '/images/like_product_icon.png" alt="like icon">';
-        echo '</a>';
-        // Add to cart icon
-        echo '<a href="' . esc_url(add_query_arg('add-to-cart', $product->get_id())) . '">';
-        echo '<img src="' . get_template_directory_uri() . '/images/add_product_icon.png" alt="add to cart icon">';
-        echo '</a>';
-        // Open product icon
-        echo '<a href="' . esc_url(get_permalink()) . '">';
-        echo '<img src="' . get_template_directory_uri() . '/images/open_product_icon.png" alt="open product icon">';
-        echo '</a>';
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
-      endwhile;
-      echo '</div>';
+              <h2 class="font-noirPro-semiBold text-lg"><?php echo esc_html(get_the_title()); ?></h2>
+              <p class="font-noirPro-medium">Desde: <?php echo $product->get_price_html(); ?></p>
+            </div>
+          </div>
+        <?php endwhile; ?>
+      </div>
+
+      <?php
     } else {
       echo esc_html__('No products found', 'text_domain');
     }

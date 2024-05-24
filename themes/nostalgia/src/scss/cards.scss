@@ -2,7 +2,7 @@
   &__image {
     @apply mb-4 w-full bg-light-gray-500 h-64 md:h-72;
     img {
-      @apply w-full object-cover h-64 md:h-72;
+      @apply w-full object-cover md:h-72 h-64 #{!important};
     }
   }
 
@@ -16,5 +16,20 @@
 
   &__date {
     @apply text-light-gray-700 text-sm font-noirPro-regular;
+  }
+}
+
+.cardFeaturedProduct {
+  @apply col-span-12 md:col-span-4 lg:col-span-3;
+
+  &__image {
+    @apply w-full;
+    img {
+      @apply w-full object-cover h-[300px] #{!important};
+    }
+  }
+
+  &__overlay {
+    @apply absolute top-0 right-0 w-full h-full flex justify-center items-center bg-black-500 bg-opacity-70 opacity-0 hover:opacity-100 transition-opacity duration-300 ease-in-out;
   }
 }
