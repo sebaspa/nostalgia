@@ -5,3 +5,8 @@
     @apply absolute -bottom-1 -right-2 w-4 h-4 flex items-center justify-center bg-yellow-500 text-black-500 text-xs rounded-full;
   }
 }
+
+.add_to_cart_button,
+.single_add_to_cart_button {
+  @apply text-white text-base font-noirPro-medium uppercase py-1 px-4 bg-black-400 #{!important};
+}

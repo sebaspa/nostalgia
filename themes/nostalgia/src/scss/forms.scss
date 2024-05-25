@@ -14,3 +14,11 @@
     @apply text-white text-2xl md:text-3xl ml-3;
   }
 }
+
+.form-select {
+  @apply border border-black-400 w-full py-2 px-2;
+}
+
+.input-text {
+  @apply border border-black-400 w-full py-1 px-2;
+}
